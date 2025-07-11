@@ -20,7 +20,6 @@
 
 ---
 
-** Projet réalisé avec succès ! Infrastructure Azure déployée et documentée selon les meilleures pratiques DevOps.**
 Description du projet
 
 Ce projet consiste à déployer une infrastructure Azure complète et sécurisée en utilisant Terraform. L'infrastructure comprend une machine virtuelle Linux Ubuntu 22.04 avec un serveur web Nginx, accessible via SSH et HTTP avec des règles de sécurité strictes.
