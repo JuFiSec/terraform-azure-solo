@@ -184,28 +184,6 @@ terraform destroy
 
 ---
 
-## 🗑️ Nettoyage des ressources
-
-### 1. Planification de la destruction (`terraform destroy`)
-*La commande `destroy` affiche d'abord ce qui sera supprimé.*
-```bash
-terraform destroy
-```
-![Plan de destruction Terraform](screenshots/21-terraform-destroy-plan.png)
-
-### 2. Confirmation de la destruction
-*Confirmation de la suppression de toutes les ressources.*
-![Confirmation destruction](screenshots/22-terraform-destroy-confirm.png)
-
-### 3. Destruction terminée
-*Toutes les ressources ont été supprimées avec succès.*
-![Destruction terminée](screenshots/23-terraform-destroy-success.png)
-
-### 4. Vérification dans Azure Portal
-*Le Resource Group est maintenant vide ou supprimé.*
-![Azure Portal après nettoyage](screenshots/24-azure-cleanup.png)
-
----
 
 ## 💰 Analyse des coûts
 
@@ -416,6 +394,28 @@ curl http://$(terraform output -raw public_ip_address)
 ### 4. Test du serveur web dans le navigateur
 *Accès à la page web personnalisée via le navigateur.*
 ![Page web dans le navigateur](screenshots/15-web-server-browser.png)
+
+---
+## 🗑️ Nettoyage des ressources
+
+### 1. Planification de la destruction (`terraform destroy`)
+*La commande `destroy` affiche d'abord ce qui sera supprimé.*
+```bash
+terraform destroy
+```
+![Plan de destruction Terraform](screenshots/21-terraform-destroy-plan.png)
+
+### 2. Confirmation de la destruction
+*Confirmation de la suppression de toutes les ressources.*
+![Confirmation destruction](screenshots/22-terraform-destroy-confirm.png)
+
+### 3. Destruction terminée
+*Toutes les ressources ont été supprimées avec succès.*
+![Destruction terminée](screenshots/23-terraform-destroy-success.png)
+
+### 4. Vérification dans Azure Portal
+*Le Resource Group est maintenant vide ou supprimé.*
+![Azure Portal après nettoyage](screenshots/24-azure-cleanup.png)
 
 ---
 
