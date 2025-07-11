@@ -23,19 +23,19 @@
 ```bash
 terraform destroy
 ```
-![Plan de destruction Terraform](screenshots/22-terraform-destroy-plan.png)
+![Plan de destruction Terraform](screenshots/21-terraform-destroy-plan.png)
 
 ### 2. Confirmation de la destruction
 *Confirmation de la suppression de toutes les ressources.*
-![Confirmation destruction](screenshots/23-terraform-destroy-confirm.png)
+![Confirmation destruction](screenshots/22-terraform-destroy-confirm.png)
 
 ### 3. Destruction terminée
 *Toutes les ressources ont été supprimées avec succès.*
-![Destruction terminée](screenshots/24-terraform-destroy-success.png)
+![Destruction terminée](screenshots/23-terraform-destroy-success.png)
 
 ### 4. Vérification dans Azure Portal
 *Le Resource Group est maintenant vide ou supprimé.*
-![Azure Portal après nettoyage](screenshots/25-azure-cleanup.png)
+![Azure Portal après nettoyage](screenshots/24-azure-cleanup.png)
 
 ---
 
@@ -338,6 +338,8 @@ nano terraform.tfvars
 
 ## 🔧 Déploiement de l'infrastructure
 
+## 🔧 Déploiement de l'infrastructure
+
 ### 1. Initialisation Terraform (`terraform init`)
 *La commande `init` télécharge les providers nécessaires et initialise le backend Terraform.*
 ```bash
@@ -350,40 +352,40 @@ terraform init
 ```bash
 terraform fmt
 ```
-![Formatage du code Terraform](screenshots/02-terraform-fmt.png)
+![Formatage du code Terraform](screenshots/02-terraform-plan.png)
 
 ### 3. Validation de la syntaxe (`terraform validate`)
 *La commande `validate` vérifie la syntaxe et la cohérence de la configuration.*
 ```bash
 terraform validate
 ```
-![Validation Terraform](screenshots/03-terraform-validate.png)
+![Validation Terraform](screenshots/20-terraform-validation.png)
 
 ### 4. Planification du déploiement (`terraform plan`)
 *La commande `plan` nous montre les ressources qui seront créées avant toute action.*
 ```bash
 terraform plan
 ```
-![Aperçu du plan Terraform](screenshots/04-terraform-plan.png)
+![Aperçu du plan Terraform](screenshots/02-terraform-plan.png)
 
 ### 5. Application des changements (`terraform apply`)
 *La commande `apply` déploie effectivement l'infrastructure sur Azure.*
 
 #### Confirmation du déploiement
-![Confirmation du déploiement](screenshots/05-terraform-apply-confirm.png)
+![Confirmation du déploiement](screenshots/03-terraform-apply-confirm.png)
 
 #### Progression du déploiement
-![Progression du déploiement](screenshots/06-terraform-apply-progress.png)
+![Progression du déploiement](screenshots/04-terraform-apply-progress.png)
 
 #### Déploiement terminé avec succès
-![Déploiement réussi](screenshots/07-terraform-apply-success.png)
+![Déploiement réussi](screenshots/05-terraform-apply-success.png)
 
 ### 6. Récupération des informations (`terraform output`)
 *La commande `output` affiche les informations importantes de l'infrastructure déployée.*
 ```bash
 terraform output
 ```
-![Outputs Terraform](screenshots/08-terraform-output.png)
+![Outputs Terraform](screenshots/06-terraform-output.png)
 
 ---
 
@@ -395,23 +397,23 @@ terraform output
 
 ### 1. Vue d'ensemble du Resource Group
 *Le Resource Group `rg-terraform-dev` contient toutes nos ressources déployées.*
-![Resource Group Azure](screenshots/09-azure-resource-group.png)
+![Resource Group Azure](screenshots/07-azure-resource-group.png)
 
 ### 2. Détails de la Virtual Machine
 *La VM `vm-webserver` est en état "Running" et prête à recevoir des connexions.*
-![VM Azure - Vue d'ensemble](screenshots/10-azure-vm-overview.png)
+![VM Azure - Vue d'ensemble](screenshots/08-azure-vm-overview.png)
 
 ### 3. Configuration réseau de la VM
 *Configuration de l'interface réseau avec IP privée et publique.*
-![VM Azure - Configuration réseau](screenshots/11-azure-vm-networking.png)
+![VM Azure - Configuration réseau](screenshots/09-azure-vm-networking.png)
 
 ### 4. Configuration de l'IP publique
 *L'IP publique statique assignée à notre VM.*
-![IP publique Azure](screenshots/12-azure-public-ip.png)
+![IP publique Azure](screenshots/10-azure-public-ip.png)
 
 ### 5. Règles du Network Security Group
 *Les règles de sécurité configurées : SSH (port 22), HTTP (port 80), HTTPS (port 443).*
-![Règles NSG Azure](screenshots/13-azure-nsg-rules.png)
+![Règles NSG Azure](screenshots/11-azure-nsg-rules.png)
 
 ---
 
@@ -426,7 +428,7 @@ chmod 600 ssh_key.pem
 # Connexion à la VM
 ssh -i ssh_key.pem azureuser@$(terraform output -raw public_ip_address)
 ```
-![Connexion SSH](screenshots/14-ssh-connection.png)
+![Connexion SSH](screenshots/12-ssh-connection.png)
 
 ### 2. Exécution de commandes sur la VM
 *Vérification du système et des services sur la machine virtuelle.*
@@ -435,18 +437,18 @@ whoami
 uname -a
 sudo systemctl status nginx
 ```
-![Commandes SSH sur la VM](screenshots/15-ssh-commands.png)
+![Commandes SSH sur la VM](screenshots/13-ssh-commands.png)
 
 ### 3. Test du serveur web avec curl
 *Test du serveur web depuis la ligne de commande.*
 ```bash
 curl http://$(terraform output -raw public_ip_address)
 ```
-![Test curl du serveur web](screenshots/16-web-server-curl.png)
+![Test curl du serveur web](screenshots/14-web-server-curl.png)
 
 ### 4. Test du serveur web dans le navigateur
 *Accès à la page web personnalisée via le navigateur.*
-![Page web dans le navigateur](screenshots/17-web-server-browser.png)
+![Page web dans le navigateur](screenshots/15-web-server-browser.png)
 
 ---
 
@@ -454,7 +456,7 @@ curl http://$(terraform output -raw public_ip_address)
 
 ### 1. Métriques Azure Monitor
 *Surveillance des performances de la VM dans Azure Monitor.*
-![Métriques Azure Monitor](screenshots/18-azure-monitoring.png)
+![Métriques Azure Monitor](screenshots/17-azure-monitoring.png)
 
 ### 2. Logs de connexion SSH
 *Consultation des logs de connexion SSH sur la VM.*
@@ -462,7 +464,7 @@ curl http://$(terraform output -raw public_ip_address)
 # Sur la VM via SSH
 sudo tail /var/log/auth.log | grep ssh
 ```
-![Logs SSH](screenshots/19-ssh-logs.png)
+![Logs SSH](screenshots/18-ssh-logs.png)
 
 ### 3. Status des services sur la VM
 *Vérification du statut des services nginx et des ports ouverts.*
@@ -470,11 +472,11 @@ sudo tail /var/log/auth.log | grep ssh
 sudo systemctl status nginx
 sudo ss -tulpn | grep -E ':80|:22'
 ```
-![Status des services VM](screenshots/20-vm-services.png)
+![Status des services VM](screenshots/16-vm-services-status.png)
 
 ### 4. Structure finale du projet
 *Arborescence complète du projet Terraform.*
-![Structure du projet](screenshots/21-project-structure.png)
+![Structure du projet](screenshots/19-project-structure.png)
 
 ---
 
