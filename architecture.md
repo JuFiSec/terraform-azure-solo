@@ -90,7 +90,7 @@ Internet
 ## 🔧 Composants techniques détaillés
 
 ### 1. **Resource Group**
-![Resource Group dans Azure](screenshots/09-azure-resource-group.png)
+![Resource Group dans Azure](screenshots/07-azure-resource-group.png)
 *Vue du Resource Group avec toutes les ressources déployées*
 
 - **Nom**: `rg-terraform-dev`
@@ -106,7 +106,7 @@ Internet
 - **DNS**: Azure DNS par défaut
 
 ### 3. **Sécurité réseau**
-![Configuration NSG](screenshots/13-azure-nsg-rules.png)
+![Configuration NSG](screenshots/11-azure-nsg-rules.png)
 *Règles du Network Security Group configurées*
 
 - **Network Security Group**: `nsg-webserver`
@@ -119,7 +119,7 @@ Internet
 - **Politique par défaut**: Deny All (sécurité par défaut)
 
 ### 4. **Adressage IP**
-![Configuration IP publique](screenshots/12-azure-public-ip.png)
+![Configuration IP publique](screenshots/10-azure-public-ip.png)
 *Détails de l'IP publique statique*
 
 - **IP publique**: `pip-webserver`
@@ -128,10 +128,10 @@ Internet
 - **IP privée**: Attribution dynamique via DHCP Azure
 
 ### 5. **Machine virtuelle**
-![Détails de la VM](screenshots/10-azure-vm-overview.png)
+![Détails de la VM](screenshots/08-azure-vm-overview.png)
 *Vue d'ensemble de la machine virtuelle*
 
-![Configuration réseau VM](screenshots/11-azure-vm-networking.png)
+![Configuration réseau VM](screenshots/09-azure-vm-networking.png)
 *Configuration réseau détaillée de la VM*
 
 - **Nom**: `vm-webserver`
@@ -149,7 +149,7 @@ Internet
 ## 🔐 Sécurité implémentée
 
 ### 1. **Authentification**
-![Connexion SSH sécurisée](screenshots/14-ssh-connection.png)
+![Connexion SSH sécurisée](screenshots/12-ssh-connection.png)
 *Connexion SSH avec clé privée*
 
 - ✅ **SSH par clé uniquement** (mot de passe désactivé)
@@ -162,7 +162,7 @@ Internet
 - ✅ **Principe du moindre privilège** appliqué
 
 ### 3. **Sécurité au niveau OS**
-![Services sur la VM](screenshots/20-vm-services.png)
+![Services sur la VM](screenshots/16-vm-services-status.png)
 *État des services et ports ouverts*
 
 - ✅ **Ubuntu 22.04 LTS** (support étendu)
@@ -170,10 +170,10 @@ Internet
 - ✅ **Utilisateur non-root** pour SSH
 
 ### 4. **Monitoring et logging**
-![Monitoring Azure](screenshots/18-azure-monitoring.png)
+![Monitoring Azure](screenshots/17-azure-monitoring.png)
 *Métriques de performance dans Azure Monitor*
 
-![Logs SSH](screenshots/19-ssh-logs.png)
+![Logs SSH](screenshots/18-ssh-logs.png)
 *Logs de connexion SSH*
 
 - ✅ **Azure Monitor** activé par défaut
@@ -257,11 +257,58 @@ Internet
 - **Disque**: Seuil d'alerte à 85%
 - **Réseau**: Monitoring des connexions
 
-## 🔧 Maintenance et opérations
+## 🔧 Processus de déploiement illustré
 
-### Tâches quotidiennes
-- Vérification des logs système
-- Monitoring# Architecture Technique - Infrastructure Azure
+### Phase 1: Planification Terraform
+![Plan Terraform](screenshots/02-terraform-plan.png)
+*Planification des ressources à déployer*
+
+### Phase 2: Déploiement en cours
+![Déploiement Terraform](screenshots/04-terraform-apply-progress.png)
+*Progression du déploiement des ressources Azure*
+
+### Phase 3: Déploiement terminé
+![Déploiement réussi](screenshots/05-terraform-apply-success.png)
+*Confirmation du déploiement réussi*
+
+### Phase 4: Outputs du déploiement
+![Outputs Terraform](screenshots/06-terraform-output.png)
+*Informations de connexion et URLs générées*
+
+## 🧪 Tests de fonctionnalité
+
+### Test de connectivité SSH
+![Test SSH](screenshots/13-ssh-commands.png)
+*Exécution de commandes sur la VM via SSH*
+
+### Test du serveur web
+![Test serveur web](screenshots/14-web-server-curl.png)
+*Test du serveur web avec curl*
+
+![Page web navigateur](screenshots/15-web-server-browser.png)
+*Page web accessible dans le navigateur*
+
+### Validation de la structure du projet
+![Structure projet](screenshots/19-project-structure.png)
+*Arborescence complète du projet Terraform*
+
+## 🧹 Processus de nettoyage
+
+### Planification de la destruction
+![Plan destruction](screenshots/21-terraform-destroy-plan.png)
+*Plan de destruction des ressources*
+
+### Confirmation de suppression
+![Confirmation destruction](screenshots/22-terraform-destroy-confirm.png)
+*Confirmation de la suppression*
+
+### Nettoyage terminé
+![Destruction réussie](screenshots/23-terraform-destroy-success.png)
+*Toutes les ressources supprimées avec succès*
+
+### Vérification finale
+![Azure nettoyé](screenshots/24-azure-cleanup.png)
+*Vérification que le Resource Group est vide*# Architecture Technique - Infrastructure Azure
 
 ## 🏗️ Vue d'ensemble de l'architecture
 
@@ -504,8 +551,47 @@ Internet
 - Audit de sécurité
 - Test de restauration
 
+## 📊 Tableaux de bord recommandés
+
+### Métriques clés à surveiller
+1. **CPU Utilization** (seuil: 80%)
+2. **Memory Usage** (seuil: 90%)
+3. **Disk I/O** (seuil: 85%)
+4. **Network Traffic**
+5. **Failed SSH Attempts**
+
+### Alertes configurées
+- CPU > 80% pendant 5 minutes
+- Mémoire > 90% pendant 3 minutes
+- Disque > 85%
+- Tentatives SSH échouées > 10/heure
+
+## 🏆 Points forts de cette architecture
+
+### ✅ Sécurité
+- Authentification par clé SSH uniquement
+- Accès réseau restreint par IP source
+- Firewall configuré avec règles spécifiques
+- Principe du moindre privilège appliqué
+
+### ✅ Scalabilité
+- Infrastructure as Code reproductible
+- Variables paramétrables
+- Possibilité d'ajout de nouvelles ressources
+
+### ✅ Monitoring
+- Azure Monitor intégré
+- Logs centralisés
+- Métriques de performance
+
+### ✅ Coûts optimisés
+- VM de taille appropriée pour le dev/test
+- Stockage Standard SSD (bon compromis)
+- IP publique statique (nécessaire mais optimisée)
+
 ---
 
 **Architecture conçue par**: FIENI DANNIE INNOCENT JUNIOR  
 **Formation**: Mastère 1 Cybersécurité & Cloud Computing - IPSSI Nice  
-**Date**: 2024
+**Date**: 2024  
+**Validation**: Infrastructure testée et fonctionnelle
