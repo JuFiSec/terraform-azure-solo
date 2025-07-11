@@ -1,4 +1,4 @@
-# 🚀 TP Terraform Solo - Azure Infrastructure de Base
+# TP Terraform Solo - Azure Infrastructure de Base
 
 [![Terraform](https://img.shields.io/badge/Terraform-1.5+-purple)](https://terraform.io)
 [![Azure](https://img.shields.io/badge/Azure-Cloud-blue)](https://azure.microsoft.com)
@@ -57,7 +57,7 @@ terraform destroy
 
 Pour plus de détails techniques, consultez :
 - [📖 Architecture technique détaillée](architecture.md)
-- [📸 Guide des captures d'écran](screenshots/README.md)
+
 
 ---
 
@@ -93,26 +93,12 @@ Pour plus de détails techniques, consultez :
 
 ---
 
-## 🎯 Résultats obtenus
-
-### Score attendu : **18-20/20**
-
-| Critère | Points | Status |
-|---------|--------|--------|
-| **Structure du code** | 5/5 | ✅ Excellent |
-| **Fonctionnalité** | 5/5 | ✅ Parfait |
-| **Bonnes pratiques** | 4/4 | ✅ Respectées |
-| **Documentation** | 3/3 | ✅ Complète |
-| **Sécurité** | 3/3 | ✅ Renforcée |
-
----
-
 ## 🚀 Commandes rapides
 
 ### Déploiement complet
 ```bash
 # Clonez le projet
-git clone https://github.com/VOTRE_USERNAME/terraform-azure-solo.git
+git clone https://github.com/JuFiSec/terraform-azure-solo.git
 cd terraform-azure-solo
 
 # Configurez vos variables
@@ -149,30 +135,30 @@ terraform destroy
 ## 🏆 Points forts du projet
 
 ### 🔧 Technique
-- ✅ Infrastructure as Code avec Terraform
-- ✅ Providers Azure et TLS
-- ✅ Variables avec validation
-- ✅ Outputs informatifs
-- ✅ Tags cohérents
+-  Infrastructure as Code avec Terraform
+-  Providers Azure et TLS
+-  Variables avec validation
+-  Outputs informatifs
+-  Tags cohérents
 
 ### 🔐 Sécurité
-- ✅ SSH par clé RSA 4096 bits
-- ✅ Restriction d'accès par IP source
-- ✅ Network Security Group configuré
-- ✅ Principe du moindre privilège
-- ✅ .gitignore sécurisé
+-  SSH par clé RSA 4096 bits
+-  Restriction d'accès par IP source
+-  Network Security Group configuré
+-  Principe du moindre privilège
+-  .gitignore sécurisé
 
 ### 📖 Documentation
-- ✅ README complet avec captures
-- ✅ Architecture technique détaillée
-- ✅ Guide d'utilisation étape par étape
-- ✅ Commentaires dans le code
+-  README complet avec captures
+-  Architecture technique détaillée
+-  Guide d'utilisation étape par étape
+-  Commentaires dans le code
 
 ### 🚀 DevOps
-- ✅ CI/CD GitHub Actions
-- ✅ Scripts d'automatisation
-- ✅ Validation automatique
-- ✅ Tests de connectivité
+-  CI/CD GitHub Actions
+-  Scripts d'automatisation
+-  Validation automatique
+-  Tests de connectivité
 
 ---
 
@@ -206,7 +192,8 @@ terraform destroy
 
 ---
 
-**🎉 Projet réalisé avec succès ! Infrastructure Azure déployée et documentée selon les meilleures pratiques DevOps.**📋 Description du projet
+** Projet réalisé avec succès ! Infrastructure Azure déployée et documentée selon les meilleures pratiques DevOps.**
+Description du projet
 
 Ce projet consiste à déployer une infrastructure Azure complète et sécurisée en utilisant Terraform. L'infrastructure comprend une machine virtuelle Linux Ubuntu 22.04 avec un serveur web Nginx, accessible via SSH et HTTP avec des règles de sécurité strictes.
 
@@ -274,8 +261,6 @@ Ce projet consiste à déployer une infrastructure Azure complète et sécurisé
 - Un compte Azure avec des crédits disponibles
 
 ### Vérification des prérequis
-![Vérification des prérequis](screenshots/00-prerequisites-check.png)
-*Vérification des versions d'Azure CLI et Terraform*
 
 ```bash
 # Vérifier Azure CLI
@@ -310,9 +295,6 @@ az login
 az account show
 ```
 
-![Connexion Azure](screenshots/00-azure-login.png)
-*Connexion réussie à Azure et vérification de la souscription*
-
 ### 3. Configuration des variables
 
 #### Obtention de votre IP publique
@@ -331,12 +313,7 @@ nano terraform.tfvars
 
 ⚠️ **IMPORTANT**: Remplacez `my_ip_address = "0.0.0.0/0"` par votre IP réelle (format: "VOTRE_IP/32")
 
-![Configuration variables](screenshots/00-tfvars-config.png)
-*Configuration du fichier terraform.tfvars avec l'IP sécurisée*
-
 ---
-
-## 🔧 Déploiement de l'infrastructure
 
 ## 🔧 Déploiement de l'infrastructure
 
