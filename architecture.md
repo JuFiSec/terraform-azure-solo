@@ -90,7 +90,7 @@ Internet
 ## 🔧 Composants techniques détaillés
 
 ### 1. **Resource Group**
-![Resource Group Azure](screenshots/07-azure-resource-group.png)
+![Resource Group Azure](screenshots/05-terraform-apply-success.png)
 *Vue du Resource Group avec toutes les ressources déployées*
 
 - **Nom**: `rg-terraform-dev`
