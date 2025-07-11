@@ -319,7 +319,7 @@ terraform init
 ```bash
 terraform fmt
 ```
-![Formatage du code Terraform](screenshots/02-terraform-plan.png)
+![Formatage du code Terraform](screenshots/20-terraform-validation.png)
 
 ### 3. Validation de la syntaxe (`terraform validate`)
 *La commande `validate` vérifie la syntaxe et la cohérence de la configuration.*
