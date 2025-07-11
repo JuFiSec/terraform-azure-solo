@@ -72,7 +72,7 @@ git --version
 
 ### 1. Clone du repository
 ```bash
-git clone https://github.com/VOTRE_USERNAME/terraform-azure-solo.git
+git clone https://github.com/JuFiSec/terraform-azure-solo.git
 cd terraform-azure-solo
 ```
 
