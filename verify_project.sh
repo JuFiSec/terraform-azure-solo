@@ -471,30 +471,6 @@ show_final_report() {
         done
         echo ""
     fi
-    
-    # Recommandations finales
-    echo "📋 RECOMMANDATIONS:"
-    if [ $SCORE -lt 15 ]; then
-        echo "  - Corrigez les erreurs listées ci-dessus"
-        echo "  - Complétez la documentation manquante"
-        echo "  - Ajoutez plus de captures d'écran"
-    fi
-    echo "  - Testez le déploiement complet avec ./deploy.sh"
-    echo "  - Vérifiez que l'infrastructure fonctionne"
-    echo "  - Assurez-vous que les captures sont complètes"
-    echo "  - Poussez tout sur GitHub avant la deadline"
-    echo ""
-    
-    # Prochaines étapes
-    echo "🚀 PROCHAINES ÉTAPES:"
-    echo "  1. Corrigez les points mentionnés"
-    echo "  2. Testez le déploiement: ./deploy.sh"
-    echo "  3. Prenez les captures manquantes"
-    echo "  4. Poussez sur GitHub: git push"
-    echo "  5. Vérifiez que votre prof peut voir le repo"
-    echo ""
-    echo "========================================"
-    
     # Code de retour basé sur le score
     if [ $SCORE -ge 12 ]; then
         return 0  # Succès
