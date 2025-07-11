@@ -382,7 +382,7 @@ whoami
 uname -a
 sudo systemctl status nginx
 ```
-![Commandes SSH sur la VM](screenshots/13-ssh-commands.png)
+![Commandes SSH sur la VM](screenshots/16-vm-services-status.png)
 
 ### 3. Test du serveur web avec curl
 *Test du serveur web depuis la ligne de commande.*
