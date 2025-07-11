@@ -22,6 +22,6 @@ allowed_ssh_ip = "VOTRE_IP_PUBLIQUE/32"
 common_tags = {
   Environment = "dev"
   Project     = "terraform-azure-solo"
-  Owner       = "VOTRE_NOM"
+  Owner       = "FIENI DANNIE INNOCENT JUNIOR"
   CreatedBy   = "Terraform"
 }
