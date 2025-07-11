@@ -438,24 +438,24 @@ Internet
 ## 🔐 Sécurité implémentée
 
 ### 1. **Authentification**
-- ✅ **SSH par clé uniquement** (mot de passe désactivé)
-- ✅ **Clé SSH RSA 4096 bits** générée automatiquement
-- ✅ **Permissions correctes** sur la clé privée (600)
+-  **SSH par clé uniquement** (mot de passe désactivé)
+-  **Clé SSH RSA 4096 bits** générée automatiquement
+-  **Permissions correctes** sur la clé privée (600)
 
 ### 2. **Contrôle d'accès réseau**
-- ✅ **SSH restreint** à une IP spécifique
-- ✅ **Firewall Azure** (NSG) configuré
-- ✅ **Principe du moindre privilège** appliqué
+-  **SSH restreint** à une IP spécifique
+-  **Firewall Azure** (NSG) configuré
+-  **Principe du moindre privilège** appliqué
 
 ### 3. **Sécurité au niveau OS**
-- ✅ **Ubuntu 22.04 LTS** (support étendu)
-- ✅ **Mises à jour automatiques** configurées
-- ✅ **Utilisateur non-root** pour SSH
+-  **Ubuntu 22.04 LTS** (support étendu)
+-  **Mises à jour automatiques** configurées
+-  **Utilisateur non-root** pour SSH
 
 ### 4. **Monitoring et logging**
-- ✅ **Azure Monitor** activé par défaut
-- ✅ **Logs SSH** disponibles
-- ✅ **Métriques VM** collectées
+-  **Azure Monitor** activé par défaut
+-  **Logs SSH** disponibles
+-  **Métriques VM** collectées
 
 ## 💰 Analyse des coûts
 
@@ -568,23 +568,23 @@ Internet
 
 ## 🏆 Points forts de cette architecture
 
-### ✅ Sécurité
+###  Sécurité
 - Authentification par clé SSH uniquement
 - Accès réseau restreint par IP source
 - Firewall configuré avec règles spécifiques
 - Principe du moindre privilège appliqué
 
-### ✅ Scalabilité
+###  Scalabilité
 - Infrastructure as Code reproductible
 - Variables paramétrables
 - Possibilité d'ajout de nouvelles ressources
 
-### ✅ Monitoring
+###  Monitoring
 - Azure Monitor intégré
 - Logs centralisés
 - Métriques de performance
 
-### ✅ Coûts optimisés
+###  Coûts optimisés
 - VM de taille appropriée pour le dev/test
 - Stockage Standard SSD (bon compromis)
 - IP publique statique (nécessaire mais optimisée)
@@ -593,5 +593,5 @@ Internet
 
 **Architecture conçue par**: FIENI DANNIE INNOCENT JUNIOR  
 **Formation**: Mastère 1 Cybersécurité & Cloud Computing - IPSSI Nice  
-**Date**: 2024  
+**Date**: 2025  
 **Validation**: Infrastructure testée et fonctionnelle
