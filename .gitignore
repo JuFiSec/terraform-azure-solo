@@ -1,38 +1,50 @@
-# Fichiers Terraform
+# Terraform files
 *.tfstate
 *.tfstate.*
-*.tfvars
+*.tfplan
+*.tfplan.*
 .terraform/
 .terraform.lock.hcl
-tfplan
-terraform.tfvars.bak
 
-# Clés SSH (TRÈS IMPORTANT - Ne jamais commiter!)
-ssh_key.pem
+# Configuration files with secrets
+terraform.tfvars
+
+# Crash log files
+crash.log
+
+# SSH keys (generated automatically)
+ssh-key.pem
 *.pem
 *.key
 
-# Logs
-*.log
-deployment_info.txt
-
-# Fichiers temporaires
-*.tmp
-*.temp
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Fichiers IDE
+# IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Fichiers de sauvegarde
-*.bak
-*.backup
+# Log files
+*.log
 
-# Fichiers de configuration locale
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.backup
+*.bak
+
+# Local environment files
 .env
 .env.local
+.env.*.local
