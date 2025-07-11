@@ -13,179 +13,7 @@
 | **École** | IPSSI Nice |
 | **Projet** | Infrastructure Azure avec Terraform |
 | **Durée** | 3 heures |
-
----
-
-## 🗑️ Nettoyage des ressources
-
-### 1. Planification de la destruction (`terraform destroy`)
-*La commande `destroy` affiche d'abord ce qui sera supprimé.*
-```bash
-terraform destroy
-```
-![Plan de destruction Terraform](screenshots/21-terraform-destroy-plan.png)
-
-### 2. Confirmation de la destruction
-*Confirmation de la suppression de toutes les ressources.*
-![Confirmation destruction](screenshots/22-terraform-destroy-confirm.png)
-
-### 3. Destruction terminée
-*Toutes les ressources ont été supprimées avec succès.*
-![Destruction terminée](screenshots/23-terraform-destroy-success.png)
-
-### 4. Vérification dans Azure Portal
-*Le Resource Group est maintenant vide ou supprimé.*
-![Azure Portal après nettoyage](screenshots/24-azure-cleanup.png)
-
----
-
-## 💰 Analyse des coûts
-
-| Composant | Taille/Type | Prix mensuel (€) |
-|-----------|-------------|------------------|
-| VM Standard_B1s | 1 vCPU, 1GB RAM | ~15.00 |
-| Stockage StandardSSD_LRS | 30 GB | ~3.50 |
-| IP publique statique | Standard | ~3.00 |
-| Bande passante sortante | 5 GB inclus | ~0.00 |
-| Network Security Group | - | ~0.00 |
-| Virtual Network | - | ~0.00 |
-| **TOTAL ESTIMÉ** | | **~21.50** |
-
----
-
-## 📚 Documentation technique
-
-Pour plus de détails techniques, consultez :
-- [📖 Architecture technique détaillée](architecture.md)
-
-
----
-
-## ✅ Checklist de validation
-
-### Structure du projet
-- [x] **main.tf** - Infrastructure Azure complète
-- [x] **variables.tf** - Variables avec validation
-- [x] **outputs.tf** - Sorties importantes
-- [x] **terraform.tfvars** - Configuration personnalisée
-- [x] **README.md** - Documentation utilisateur
-- [x] **architecture.md** - Documentation technique
-- [x] **.gitignore** - Sécurité des fichiers
-
-### Fonctionnalité
-- [x] Infrastructure déployée avec succès
-- [x] VM accessible via SSH
-- [x] Serveur web fonctionnel
-- [x] Règles de sécurité configurées
-- [x] Monitoring opérationnel
-
-### Documentation
-- [x] Plus de 25 captures d'écran
-- [x] Toutes les phases documentées
-- [x] Schéma d'architecture Azure inclus
-- [x] Instructions complètes
-
-### Sécurité
-- [x] SSH par clé uniquement
-- [x] Accès SSH restreint par IP
-- [x] Firewall configuré (NSG)
-- [x] Aucun fichier sensible sur Git
-
----
-
-## 🚀 Commandes rapides
-
-### Déploiement complet
-```bash
-# Clonez le projet
-git clone https://github.com/JuFiSec/terraform-azure-solo.git
-cd terraform-azure-solo
-
-# Configurez vos variables
-cp terraform.tfvars.example terraform.tfvars
-# Éditez terraform.tfvars avec votre IP
-
-# Déployez
-terraform init
-terraform plan
-terraform apply
-
-# Testez
-ssh -i ssh_key.pem azureuser@$(terraform output -raw public_ip_address)
-curl http://$(terraform output -raw public_ip_address)
-
-# Nettoyez
-terraform destroy
-```
-
-### Scripts d'automatisation disponibles
-```bash
-# Déploiement automatisé
-./deploy.sh
-
-# Vérification du projet
-./verify_project.sh
-
-# Configuration GitHub
-./setup_github.sh
-```
-
----
-
-## 🏆 Points forts du projet
-
-### 🔧 Technique
--  Infrastructure as Code avec Terraform
--  Providers Azure et TLS
--  Variables avec validation
--  Outputs informatifs
--  Tags cohérents
-
-### 🔐 Sécurité
--  SSH par clé RSA 4096 bits
--  Restriction d'accès par IP source
--  Network Security Group configuré
--  Principe du moindre privilège
--  .gitignore sécurisé
-
-### 📖 Documentation
--  README complet avec captures
--  Architecture technique détaillée
--  Guide d'utilisation étape par étape
--  Commentaires dans le code
-
-### 🚀 DevOps
--  CI/CD GitHub Actions
--  Scripts d'automatisation
--  Validation automatique
--  Tests de connectivité
-
----
-
-## 📞 Support et troubleshooting
-
-### Erreurs communes
-1. **Authentication failed** → `az login`
-2. **SSH connection refused** → Vérifier NSG et IP
-3. **Terraform state locked** → Attendre ou forcer unlock
-4. **Web server not accessible** → Attendre initialisation VM
-
-### Ressources d'aide
-- [Documentation Terraform Azure Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
-- [Documentation officielle Terraform](https://www.terraform.io/docs/)
-- [Azure CLI Reference](https://docs.microsoft.com/en-us/cli/azure/)
-- [Support Azure](https://azure.microsoft.com/support/)
-
----
-
-## 📄 Informations du projet
-
-| Information | Valeur |
-|-------------|--------|
-| **Auteur** | FIENI DANNIE INNOCENT JUNIOR |
-| **Formation** | Mastère 1 Cybersécurité & Cloud Computing |
-| **École** | IPSSI Nice |
-| **Date** | 2024 |
+| **Date** | 2025 |
 | **Version Terraform** | >= 1.0 |
 | **Providers** | AzureRM ~> 3.0, TLS ~> 4.0 |
 | **Licence** | Projet éducatif |
@@ -272,6 +100,169 @@ terraform --version
 # Vérifier Git
 git --version
 ```
+## 🚀 Commandes rapides
+
+### Déploiement complet
+```bash
+# Clonez le projet
+git clone https://github.com/JuFiSec/terraform-azure-solo.git
+cd terraform-azure-solo
+
+# Configurez vos variables
+cp terraform.tfvars.example terraform.tfvars
+# Éditez terraform.tfvars avec votre IP
+
+# Déployez
+terraform init
+terraform plan
+terraform apply
+
+# Testez
+ssh -i ssh_key.pem azureuser@$(terraform output -raw public_ip_address)
+curl http://$(terraform output -raw public_ip_address)
+
+# Nettoyez
+terraform destroy
+```
+
+### Scripts d'automatisation disponibles
+```bash
+# Déploiement automatisé
+./deploy.sh
+
+# Vérification du projet
+./verify_project.sh
+
+# Configuration GitHub
+./setup_github.sh
+```
+
+---
+
+## 🏆 Points forts du projet
+
+### 🔧 Technique
+-  Infrastructure as Code avec Terraform
+-  Providers Azure et TLS
+-  Variables avec validation
+-  Outputs informatifs
+-  Tags cohérents
+
+### 🔐 Sécurité
+-  SSH par clé RSA 4096 bits
+-  Restriction d'accès par IP source
+-  Network Security Group configuré
+-  Principe du moindre privilège
+-  .gitignore sécurisé
+
+### 📖 Documentation
+-  README complet avec captures
+-  Architecture technique détaillée
+-  Guide d'utilisation étape par étape
+-  Commentaires dans le code
+
+### 🚀 DevOps
+-  CI/CD GitHub Actions
+-  Scripts d'automatisation
+-  Validation automatique
+-  Tests de connectivité
+
+---
+
+## 📞 Support et troubleshooting
+
+### Erreurs communes
+1. **Authentication failed** → `az login`
+2. **SSH connection refused** → Vérifier NSG et IP
+3. **Terraform state locked** → Attendre ou forcer unlock
+4. **Web server not accessible** → Attendre initialisation VM
+
+### Ressources d'aide
+- [Documentation Terraform Azure Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
+- [Documentation officielle Terraform](https://www.terraform.io/docs/)
+- [Azure CLI Reference](https://docs.microsoft.com/en-us/cli/azure/)
+- [Support Azure](https://azure.microsoft.com/support/)
+
+---
+
+## 🗑️ Nettoyage des ressources
+
+### 1. Planification de la destruction (`terraform destroy`)
+*La commande `destroy` affiche d'abord ce qui sera supprimé.*
+```bash
+terraform destroy
+```
+![Plan de destruction Terraform](screenshots/21-terraform-destroy-plan.png)
+
+### 2. Confirmation de la destruction
+*Confirmation de la suppression de toutes les ressources.*
+![Confirmation destruction](screenshots/22-terraform-destroy-confirm.png)
+
+### 3. Destruction terminée
+*Toutes les ressources ont été supprimées avec succès.*
+![Destruction terminée](screenshots/23-terraform-destroy-success.png)
+
+### 4. Vérification dans Azure Portal
+*Le Resource Group est maintenant vide ou supprimé.*
+![Azure Portal après nettoyage](screenshots/24-azure-cleanup.png)
+
+---
+
+## 💰 Analyse des coûts
+
+| Composant | Taille/Type | Prix mensuel (€) |
+|-----------|-------------|------------------|
+| VM Standard_B1s | 1 vCPU, 1GB RAM | ~15.00 |
+| Stockage StandardSSD_LRS | 30 GB | ~3.50 |
+| IP publique statique | Standard | ~3.00 |
+| Bande passante sortante | 5 GB inclus | ~0.00 |
+| Network Security Group | - | ~0.00 |
+| Virtual Network | - | ~0.00 |
+| **TOTAL ESTIMÉ** | | **~21.50** |
+
+---
+
+## 📚 Documentation technique
+
+Pour plus de détails techniques, consultez :
+- [📖 Architecture technique détaillée](architecture.md)
+
+
+---
+
+## ✅ Checklist de validation
+
+### Structure du projet
+- [x] **main.tf** - Infrastructure Azure complète
+- [x] **variables.tf** - Variables avec validation
+- [x] **outputs.tf** - Sorties importantes
+- [x] **terraform.tfvars** - Configuration personnalisée
+- [x] **README.md** - Documentation utilisateur
+- [x] **architecture.md** - Documentation technique
+- [x] **.gitignore** - Sécurité des fichiers
+
+### Fonctionnalité
+- [x] Infrastructure déployée avec succès
+- [x] VM accessible via SSH
+- [x] Serveur web fonctionnel
+- [x] Règles de sécurité configurées
+- [x] Monitoring opérationnel
+
+### Documentation
+- [x] Plus de 25 captures d'écran
+- [x] Toutes les phases documentées
+- [x] Schéma d'architecture Azure inclus
+- [x] Instructions complètes
+
+### Sécurité
+- [x] SSH par clé uniquement
+- [x] Accès SSH restreint par IP
+- [x] Firewall configuré (NSG)
+- [x] Aucun fichier sensible sur Git
+
+---
+
+
 
 ---
 
