@@ -342,11 +342,11 @@ terraform output
 
 ### 1. Vue d'ensemble du Resource Group
 *Le Resource Group `rg-terraform-dev` contient toutes nos ressources déployées.*
-![Resource Group Azure](screenshots/07-azure-resource-group.png)05-terraform-apply-success.png
+![Resource Group Azure](screenshots/05-terraform-apply-success.png)
 
 ### 2. Détails de la Virtual Machine
 *La VM `vm-webserver` est en état "Running" et prête à recevoir des connexions.*
-![VM Azure - Vue d'ensemble](screenshots/05-terraform-apply-success.png)
+![VM Azure - Vue d'ensemble](screenshots/07-azure-resource-group.png)
 
 ### 3. Configuration réseau de la VM
 *Configuration de l'interface réseau avec IP privée et publique.*
