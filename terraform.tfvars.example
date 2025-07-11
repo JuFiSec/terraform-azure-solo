@@ -1,0 +1,41 @@
+# Crée le template de configuration
+cat > terraform.tfvars.example << 'EOF'
+# Configuration pour l'environnement de développement
+# Copiez ce fichier vers terraform.tfvars et modifiez les valeurs
+
+# Région Azure
+location = "France Central"
+
+# Environnement de déploiement
+environment = "dev"
+
+# Taille de la machine virtuelle
+vm_size = "Standard_B1s"
+
+# Nom d'utilisateur pour SSH
+admin_username = "azureuser"
+
+# IMPORTANT: Remplacez par votre adresse IP publique réelle
+# Obtenez votre IP avec: curl ifconfig.me
+# Format: "VOTRE_IP/32" pour une IP spécifique
+my_ip_address = "0.0.0.0/0"  # CHANGEZ CETTE VALEUR !
+
+# Informations du projet
+project_name = "terraform-azure-tp"
+owner = "FIENI DANNIE INNOCENT JUNIOR"
+
+# Tags personnalisés
+common_tags = {
+  Environment = "dev"
+  Project     = "terraform-azure-tp"
+  Owner       = "FIENI DANNIE INNOCENT JUNIOR"
+  CreatedBy   = "terraform"
+  School      = "IPSSI Nice"
+  Course      = "Mastère 1 Cybersécurité & Cloud Computing"
+  Student     = "FIENI DANNIE INNOCENT JUNIOR"
+  Purpose     = "TP Terraform Azure Infrastructure"
+  CostCenter  = "Education"
+}
+EOF
+
+echo "✅ Template terraform.tfvars.example créé"
