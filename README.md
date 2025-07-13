@@ -31,38 +31,39 @@ Ce projet consiste à déployer une infrastructure Azure complète et sécurisé
 *Schéma automatiquement généré par Azure Portal montrant l'infrastructure complète*
 
 ### Schéma conceptuel
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Resource Group                           │
-│                 rg-terraform-dev                            │
-│                 (France Central)                            │
-│                                                             │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │                Virtual Network                          ││
-│  │                vnet-dev (10.0.0.0/16)                  ││
-│  │                                                         ││
-│  │  ┌─────────────────────────────────────────────────────┐││
-│  │  │              Subnet Public                          │││
-│  │  │           subnet-public (10.0.1.0/24)              │││
-│  │  │                                                     │││
-│  │  │  ┌─────────────┐    ┌─────────────┐                │││
-│  │  │  │     VM      │    │     NSG     │                │││
-│  │  │  │vm-webserver │    │nsg-webserver│                │││
-│  │  │  │Ubuntu 22.04 │    │SSH:22/HTTP  │                │││
-│  │  │  │Standard_B1s │    │    :80      │                │││
-│  │  │  └─────────────┘    └─────────────┘                │││
-│  │  │          │                                          │││
-│  │  │          │                                          │││
-│  │  │  ┌─────────────┐                                    │││
-│  │  │  │ Public IP   │                                    │││
-│  │  │  │pip-webserver│                                    │││
-│  │  │  └─────────────┘                                    │││
-│  │  └─────────────────────────────────────────────────────┘││
-│  └─────────────────────────────────────────────────────────┘│
-└─────────────────────────────────────────────────────────────┘
-```
 
----
+```mermaid
+graph TB
+    subgraph RG[" "]
+        RG_TITLE["🗂️ Resource Group<br/>rg-terraform-dev<br/>(France Central)"]
+        subgraph VNET["🌐 Virtual Network<br/>vnet-dev (10.0.0.0/16)"]
+            subgraph SUBNET["🌍 Subnet Public<br/>subnet-public (10.0.1.0/24)"]
+                VM["🖥️ VM<br/>vm-webserver<br/>Ubuntu 22.04<br/>Standard_B1s"]
+                NSG["🛡️ NSG<br/>nsg-webserver<br/>SSH:22/HTTP:80"]
+                PIP["🌐 Public IP<br/>pip-webserver"]
+            end
+        end
+    end
+    
+    %% Connexions
+    VM -.-> PIP
+    NSG -.-> VM
+    
+    %% Styles
+    classDef resourceGroup fill:#4a9eff,stroke:#1e3c72,stroke-width:3px,color:#fff
+    classDef virtualNetwork fill:#00d4aa,stroke:#008f7a,stroke-width:2px,color:#fff
+    classDef subnet fill:#ff6b6b,stroke:#e74c3c,stroke-width:2px,color:#fff
+    classDef vm fill:#3498db,stroke:#2980b9,stroke-width:2px,color:#fff
+    classDef security fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#fff
+    classDef network fill:#9b59b6,stroke:#8e44ad,stroke-width:2px,color:#fff
+    
+    class RG_TITLE resourceGroup
+    class VNET virtualNetwork
+    class SUBNET subnet
+    class VM vm
+    class NSG security
+    class PIP network
+```
 
 ## 📦 Composants déployés
 
